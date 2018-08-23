@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
+import HolaMundo from './components/Hola.jsx'
+
 class App extends Component {
   render() {
     return (
-      <div>
-        <p>Hola Mundo!</p>
-      </div>
+      <HolaMundo/>
     );
   }
 }
