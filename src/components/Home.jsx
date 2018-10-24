@@ -4,6 +4,11 @@ import HolaMundo  from './Hola.jsx'
 import { Grid, Row, Col } from 'react-bootstrap';
 
 const Home = () => {
+    let holaProps = {
+        quien: "Chicos",
+        mensaje: "todo bien?"
+    }
+
     return (
         <Grid>
             <Row>
@@ -16,7 +21,7 @@ const Home = () => {
             </Row>
             <Row>
                 <Col xs={12}>
-                    <HolaMundo quien="Chicos"></HolaMundo>
+                    <HolaMundo {...holaProps}></HolaMundo>
                 </Col>
             </Row>
         </Grid>
