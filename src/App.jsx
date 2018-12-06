@@ -16,9 +16,21 @@ class App extends Component {
     constructor(props) {
         super(props);
         
+        let usuario = (localStorage.getItem('usuario') != null ? JSON.parse(localStorage.getItem('usuario')) : '')
+
         this.state = {
-            usuario: ''
+            usuario
         }
+
+        this.handleUser = this.handleUser.bind(this);
+    }
+
+    handleUser(usuario) {
+        this.setState({
+            usuario
+        }, () => {
+            localStorage.setItem('usuario', JSON.stringify(this.state.usuario))
+        })
     }
     
     render() {
@@ -36,7 +48,7 @@ class App extends Component {
                         </Route>
                     </Switch>
                     :
-                    <Login/>
+                    <Login handleUser={this.handleUser}/>
                 }
             </Router>
             );

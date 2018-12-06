@@ -47,8 +47,9 @@ export default class Login extends Component {
         fetch('http://54.215.223.178:8080/api/login', req)
         .then(res =>  res.json())
         .then(data => {
-            if (typeof res !== 'undefined')
-            console.log(data.data)
+            if (typeof data !== 'undefined') {
+                this.props.handleUser(data)
+            }
         })
         .catch(err => {
             console.log(err)
