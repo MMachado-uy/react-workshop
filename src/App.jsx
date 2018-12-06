@@ -23,6 +23,7 @@ class App extends Component {
         }
 
         this.handleUser = this.handleUser.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     handleUser(usuario) {
@@ -30,6 +31,14 @@ class App extends Component {
             usuario
         }, () => {
             localStorage.setItem('usuario', JSON.stringify(this.state.usuario))
+        })
+    }
+
+    logout() {
+        this.setState({
+            usuario: ''
+        }, () => {
+            localStorage.removeItem('usuario')
         })
     }
     
@@ -40,7 +49,7 @@ class App extends Component {
             <Router>
                 { usuario != '' ?
                     <Switch>
-                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/" render={() => <Home logout={this.logout}/>}/>
                         <Route exact path="/hola" component={HolaMundo}/>
                         <Route exact path="/404" component={NotFound}/>
                         <Route>
