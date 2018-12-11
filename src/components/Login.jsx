@@ -48,7 +48,8 @@ export default class Login extends Component {
         .then(res =>  res.json())
         .then(data => {
             if (typeof data !== 'undefined') {
-                this.props.handleUser(data)
+ console.log("data ", data.data);
+                this.props.handleUser(data.data)
             }
         })
         .catch(err => {

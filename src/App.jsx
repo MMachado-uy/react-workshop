@@ -10,6 +10,7 @@ import {
 import HolaMundo  from './components/Hola.jsx';
 import Home       from './components/Home.jsx';
 import NotFound   from './components/NotFound.jsx';
+import Lista      from './components/Lista.jsx';
 import Login      from './components/Login.jsx';
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" render={() => <Home logout={this.logout}/>}/>
                         <Route exact path="/hola" component={HolaMundo}/>
+                        <Route exact path="/lista" component={Lista}/>
                         <Route exact path="/404" component={NotFound}/>
                         <Route>
                             <Redirect to="/404"/>
